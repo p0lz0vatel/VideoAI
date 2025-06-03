@@ -132,7 +132,7 @@ def new_video_plot_applier(message):
   print(video_filename)
 
   if (video_filename):
-    video_opened = open(storage_path + video_filename, 'rb')
+    video_opened = open(video_filename, 'rb')
 
     bot.send_video(message.chat.id, video=video_opened)
     bot.send_document(message.chat.id, video_opened, caption=f"<b>Тема Видео: {video_generator_class.topic}</b>", parse_mode="HTML")
@@ -171,5 +171,5 @@ while True:
       print("% Bot Stopped")
       break
 
-    # print(error)
-    raise error
+    print(error)
+    # raise error
