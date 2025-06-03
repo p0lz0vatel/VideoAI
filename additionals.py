@@ -46,7 +46,7 @@ class VideoGenerator:
 class MiniMaxAi:
     def __init__(self, api_key, group_id, storage_path):
         self.api_key = api_key
-        self.group_id = ""
+        self.group_id = group_id
 
         self.storage_path = storage_path
 
@@ -204,7 +204,9 @@ class MiniMaxAi:
 
                     return file_name
 
-                except:
+                except Exception as e:
+                    print(e)
+
                     pass
 
             sleep(10)

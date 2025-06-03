@@ -132,8 +132,10 @@ def new_video_plot_applier(message):
   print(video_filename)
 
   if (video_filename):
-    bot.send_video(message.chat.id, video=open(video_filename, 'rb'))
-    bot.send_document(message.chat.id, open(video_filename, 'rb'), caption=f"<b>Тема Видео: {video_generator_class.topic}</b>", parse_mode="HTML")
+    video_opened = open(storage_path + video_filename, 'rb')
+
+    bot.send_video(message.chat.id, video=video_opened)
+    bot.send_document(message.chat.id, video_opened, caption=f"<b>Тема Видео: {video_generator_class.topic}</b>", parse_mode="HTML")
 
   else:
     bot.send_message(message.chat.id, "Не удалось Загрузить Видео", parse_mode="MarkdownV2")
